@@ -16,8 +16,11 @@ public class GlobalException {
 	}
 
 	@ExceptionHandler(PlayerNotFoundException.class)
-	@ResponseStatus(reason = "Player not present in the Record with ID", code = HttpStatus.NOT_FOUND)
-	public void handlePlayerNotFoundException() {
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public String handlePlayerNotFoundException(PlayerNotFoundException e) {
+		return e.getMessage();
+	
+		
 
 	}
 

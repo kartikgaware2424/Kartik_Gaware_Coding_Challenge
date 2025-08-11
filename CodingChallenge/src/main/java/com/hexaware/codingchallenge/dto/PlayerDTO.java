@@ -2,9 +2,9 @@ package com.hexaware.codingchallenge.dto;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +25,7 @@ public class PlayerDTO {
 	private int jerseyNumber;
 
 	@NotNull
+	@Pattern(regexp = "^(Batsman|Bowler|Keeper|All Rounder)$")
 	private String role;
 	
 	@NotNull
@@ -34,6 +35,7 @@ public class PlayerDTO {
 	private String teamName;
 
 	@NotNull
+	@Pattern(regexp = "^(Maharashtra|Tamil Nadu|Kerala|Gujarat|Rajasthan)$")
 	private String state;
 
 	@Size(min = 3, max = 50, message = "Description must be between 10 and 50 characters")
